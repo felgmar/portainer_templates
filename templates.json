@@ -1,0 +1,36 @@
+{
+    "version": "2",
+    "templates": [
+        {
+            "maintainer": "https://github.com/felgmar",
+            "type": 1,
+            "title": "AdGuard Home",
+            "description": "AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover all your home devices, and you won't need any client-side software for that.",
+            "categories": [ "docker" ],
+            "platform": "linux",
+            "logo": "https://developer.asustor.com/uploadIcons/0020_999_1595573028_AdGuardhome_256.png",
+            "image": "adguard/adguardhome:latest",
+            "restart-policy": "unless-stopped",
+            "ports": [
+                "53/tcp:53/tcp",
+                "53/udp:53/udp",
+                "8080/tcp:80/tcp",
+                "3000/tcp:3000/tcp",
+                "784/tcp:784/tcp",
+                "853/tcp:853/tcp",
+                "8853/tcp:8853/tcp",
+                "5443/tcp:5443/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/mnt/adguardhome/config",
+                    "container": "/mnt/adguardhome/config"
+                },
+                {
+                    "bind": "/mnt/adguardhome/work",
+                    "container": "/mnt/adguardhome/work"
+                }
+            ]
+        }
+    ]
+}
