@@ -39,7 +39,7 @@
             "description": "A safe home for all your data",
             "categories": [ "cloud" ],
             "platform": "linux",
-            "logo": "https://developer.asustor.com/uploadIcons/0020_999_1595573028_AdGuardhome_256.png",
+            "logo": "https://raw.githubusercontent.com/thesugarat/portainer_templates-1/master/Images/nextcloud-icon.png",
             "image": "nextcloud/all-in-one:latest",
             "init": "true",
             "restart-policy": "always",
