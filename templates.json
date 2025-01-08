@@ -31,6 +31,63 @@
                     "container": "/mnt/adguardhome/work"
                 }
             ]
+        },
+        {
+            "maintainer": "https://github.com/felgmar",
+            "type": 1,
+            "title": "Nextcloud AIO",
+            "description": "A safe home for all your data",
+            "categories": [ "cloud" ],
+            "platform": "linux",
+            "logo": "https://developer.asustor.com/uploadIcons/0020_999_1595573028_AdGuardhome_256.png",
+            "image": "nextcloud/all-in-one:latest",
+            "init": "true",
+            "restart-policy": "always",
+            "container_name": "nextcloud-aio-mastercontainer",
+            "network_mode": "host",
+            "ports": [
+                "8082:8080"
+            ],
+            "env": [
+                {
+                    "default": "11000",
+                    "label": "APACHE_PORT",
+                    "name": "APACHE_PORT"
+                },
+                {
+                    "default": "0.0.0.0",
+                    "label": "APACHE_IP_BINDING",
+                    "name": "APACHE_IP_BINDING"
+                },
+                {
+                    "default": "nextcloud_aio_nextcloud_datadir",
+                    "label": "NEXTCLOUD_DATADIR",
+                    "name": "NEXTCLOUD_DATADIR"
+                },
+                {
+                    "default": "3478",
+                    "label": "TALK_PORT",
+                    "name": "TALK_PORT"
+                },
+                {
+                    "default": "false",
+                    "label": "SKIP_DOMAIN_VERIFICATION",
+                    "name": "SKIP_DOMAIN_VERIFICATION"
+                }
+            ],
+            "security_opt": [
+                "label:disable"
+            ],
+            "volumes": [
+                {
+                    "bind": "nextcloud_aio_mastercontainer",
+                    "container": "/mnt/docker-aio-config"
+                },
+                {
+                    "bind": "/var/run/docker.sock",
+                    "container": "/var/run/docker.sock:ro"
+                }
+            ]
         }
     ]
 }
