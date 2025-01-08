@@ -12,14 +12,14 @@
             "image": "adguard/adguardhome:latest",
             "restart-policy": "unless-stopped",
             "ports": [
-                "53/tcp:53/tcp",
-                "53/udp:53/udp",
-                "8080/tcp:80/tcp",
-                "3000/tcp:3000/tcp",
-                "784/tcp:784/tcp",
-                "853/tcp:853/tcp",
-                "8853/tcp:8853/tcp",
-                "5443/tcp:5443/tcp"
+                "53/tcp",
+                "53/udp",
+                "8080/tcp",
+                "3000/tcp",
+                "784/tcp",
+                "853/tcp",
+                "8853/tcp",
+                "5443/tcp"
             ],
             "volumes": [
                 {
