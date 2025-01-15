@@ -84,7 +84,7 @@
             ],
             "volumes": [
                 {
-                    "bind": "nextcloud_aio_mastercontainer",
+                    "volume": "nextcloud_aio_mastercontainer",
                     "container": "/mnt/docker-aio-config"
                 },
                 {
