@@ -27,11 +27,11 @@
             ],
             "volumes": [
                 {
-                    "volume": "adguardhome-config",
+                    "name": "adguardhome-config",
                     "container": "/mnt/adguardhome/config"
                 },
                 {
-                    "volume": "adguardhome-work",
+                    "name": "adguardhome-work",
                     "container": "/mnt/adguardhome/work"
                 }
             ]
@@ -84,7 +84,8 @@
             ],
             "volumes": [
                 {
-                    "name": "nextcloud_aio_mastercontainer"
+                    "bind": "/mnt/docker-aio-config",
+                    "container": "nextcloud_aio_mastercontainer"
                 },
                 {
                     "bind": "/var/run/docker.sock",
