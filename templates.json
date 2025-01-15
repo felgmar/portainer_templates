@@ -27,9 +27,11 @@
             ],
             "volumes": [
                 {
+                    "volume": "adguardhome-config",
                     "container": "/mnt/adguardhome/config"
                 },
                 {
+                    "volume": "adguardhome-work",
                     "container": "/mnt/adguardhome/work"
                 }
             ]
