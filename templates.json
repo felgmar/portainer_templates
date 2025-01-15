@@ -26,11 +26,9 @@
             ],
             "volumes": [
                 {
-                    "bind": "/mnt/adguardhome/config",
                     "container": "/mnt/adguardhome/config"
                 },
                 {
-                    "bind": "/mnt/adguardhome/work",
                     "container": "/mnt/adguardhome/work"
                 }
             ]
