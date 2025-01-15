@@ -11,6 +11,7 @@
             "logo": "https://developer.asustor.com/uploadIcons/0020_999_1595573028_AdGuardhome_256.png",
             "image": "adguard/adguardhome:latest",
             "restart-policy": "unless-stopped",
+            "container_name": "adguard-home",
             "ports": [
                 "53/tcp",
                 "53/udp",
