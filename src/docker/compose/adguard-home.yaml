@@ -4,18 +4,34 @@ services:
     image: adguard/adguardhome:latest
     restart: always
     ports:
-      - 53:53/tcp
-      - 53:53/udp
-      - 8080:80/tcp
-      - 3000:3000/tcp
-      - 784:784/tcp
-      - 853:853/tcp
-      - 5443:5443/tcp
-      - 8853:8853/tcp
+      - 53:53/tcp # unecrypted DNS
+      - 53:53/udp # unecrypted DNS
+      - 67:67/udp # DHCP
+      - 68:68/tcp # DHCP
+      - 68:68/udp # DHCP
+      - 8080:80/tcp # HTTP
+      - 8443:443/tcp # HTTPS
+      - 3000:3000/tcp # admin interface
+      - 784:784/tcp # DNS over QUIC
+      - 853:853/tcp # DNS over TLS
+      - 5443:5443/tcp # DNSCrypt
+      - 5443:5443/udp # DNSCrypt
+      - 8853:8853/tcp # DNS over QUIC
     volumes:
       - adguard-workdir:/opt/adguardhome/work
       - adguard-confdir:/opt/adguardhome/conf
 
 volumes:
-  adguard-workdir: {}
-  adguard-confdir: {}
+  adguard-workdir:
+    driver: local
+    driver_opts:
+      type: none
+      device: /opt/adguardhome/work
+      o: bind
+
+  adguard-confdir:
+    driver: local
+    driver_opts:
+      type: none
+      device: /opt/adguardhome/conf
+      o: bind
