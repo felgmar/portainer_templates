@@ -1,0 +1,33 @@
+services:
+  bitwarden:
+    depends_on:
+      - db
+    env_file:
+      - BW_DB_PROVIDER: mysql
+      - BW_DB_SERVER: db
+      - BW_DB_DATABASE: bitwarden_vault
+      - BW_DB_USERNAME: bitwarden
+      - BW_DB_PASSWORD: super_strong_password
+    container_name: bitwarden
+    image: ghcr.io/bitwarden/self-host:beta
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - bitwarden:/etc/bitwarden
+
+  db:
+    environment:
+      MARIADB_USER: "bitwarden"
+      MARIADB_PASSWORD: "super_strong_password"
+      MARIADB_DATABASE: "bitwarden_vault"
+      MARIADB_RANDOM_ROOT_PASSWORD: "true"
+    container_name: bitwarden_db
+    image: mariadb:10
+    restart: always
+    volumes:
+      - data:/var/lib/mysql
+
+volumes:
+  bitwarden:
+  data:
